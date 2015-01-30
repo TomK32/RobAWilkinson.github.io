@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Duber and Activerecord
+title: Düber and Activerecord
 ---
 
 ##Finishing Activerecord Relations.
