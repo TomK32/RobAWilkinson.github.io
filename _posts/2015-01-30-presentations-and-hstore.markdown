@@ -9,6 +9,7 @@ Today was the day for students to pitch their project 2s, Its so exciting seeing
 ###Learning to teach
 
 Couple quick Concepts that I noticed today, my journey right now from coder to teacher hasn't been the easiest but I feel that I'm learning more and more every day. A few things that I've noticed  
+
 * Bring back the parking lot!
   * I introduced the concept a while back of a "Parking Lot" basically a place to put tangent ideas to discuss later without derailing the lesson. Theres things that you want to talk about but you don't want it to derail the lesson or detract from the main goal of the day.
 * No more tangents, as a coder I get super excited about code concepts and if someone else is excited about them too I could spend hours talking about it, This is great if I have unlimited time but its a bad philosophy to follow when you're leading a lesson.

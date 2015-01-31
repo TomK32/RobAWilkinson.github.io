@@ -6,7 +6,7 @@ categories: update
 ---
 
 ##User Stories
-Today I had a chance to Introduce user stories and how they relate to software development as a whole, I thought I took a pretty innovative approach. I basically handed out 3 decks of cards that had a bunch of user stories on them without even mentioning what a user story is, then I had my class read the decks and pass them around. When it was over, I asked what did we just read? Someone said "A Narrative", someone else said "A Story". This was all coming form people who had never heard of User stories before this day!
+Today I had a chance to Introduce user stories and how they relate to software development as a whole, I thought I took a pretty innovative approach. I basically handed out 3 decks of cards that had a bunch of user stories on them without even mentioning what a user story is, then I had my class read the decks and pass them around. When it was over, I asked what did we just read? Someone said "A Narrative", someone else said "A Story". This was all coming from people who had never heard of User stories before this day!
 
 I really wanted my class to understand 2 key concepts:
  
