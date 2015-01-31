@@ -4,4 +4,4 @@ title: About
 permalink: /about/
 ---
 
-Just bloggin abotu my adventures teaching for general Assembly's first DTLA cohort
+Just blogging about my adventures teaching for general Assembly's first DTLA cohort
