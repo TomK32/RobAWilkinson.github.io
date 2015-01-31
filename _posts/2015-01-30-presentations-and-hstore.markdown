@@ -32,4 +32,6 @@ Add an initial migration
   end
 ~~~ 
 
+And then just add a migration that adds a column with the hstore data type
+
 The big downside is that you end up with non normalized data, but with an external api that can change its nicer to save it as hstore rather than to change your migrations all the time.
