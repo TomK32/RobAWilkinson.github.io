@@ -6,7 +6,7 @@ categories: update css
 ---
 #CSS
 
-#@CSS Selectors
+##CSS Selectors
 
 Today we had a chance to talk about and introduce CSS selectors and styling.
 I had the students using a template that was built up with normalize.css to deal with cross browser problems.
@@ -19,7 +19,7 @@ Separation of concerns was another thing that my coteacher brought up, we dont w
 
 We started off with just adding a link to a style sheet and using `*` to change the color of every element on the page to a red color just to make sure that everyone had a stylesheet linked. 
 
-Then we transitioned to using element, class, and id selectors. I gave the students a list of properties that we implemented on different elements. 
+Then we transitioned to using `element`, `class`, and `id` selectors. I gave the students a list of properties that we implemented on different elements. 
 
 To try to keep it interesting for the people who had experience with CSS before I talked a little about CSS3 transitions and transforms. 
 
