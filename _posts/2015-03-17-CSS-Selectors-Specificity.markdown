@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Introducing Postgres"
+title:  "CSS Selectors and Styling"
 date:   2015-03-17 10:31:11
 categories: update css
 ---
