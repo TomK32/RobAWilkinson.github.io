@@ -36,6 +36,7 @@ clone the starter repo off of github here
 
 we need to add the sidekiq gem into our gemfile and then bundle install.
 we need to tell rails to use sidekiq for ActiveJob
+
 ```ruby
 # config/application.rb
 module SidekiqApp
@@ -71,6 +72,7 @@ We're going to do this using rails 4.2 active jobs, like most things in rails it
 
 Now this will generate a job with a `#perform` method, make it so this method takes an `Account` does a Geocoder search by its zipcode and saves all the new data it finds.
 
+
 ```ruby
  def perform(account)
     result = Geocoder.search(account.zipcode).first
@@ -100,9 +102,8 @@ We can call a job to run at a set time as well, for example to archive an articl
 Set this up by calling the job like so
 
 ```ruby
-GeolocateAccountJob.set(wait_until: Date.tomorrow.noon).perform_later
 
-# or
+GeolocateAccountJob.set(wait_until: Date.tomorrow.noon).perform_later
 GeolocateAccountJob.set(wait: 1.week).perform_later
 ```
 
