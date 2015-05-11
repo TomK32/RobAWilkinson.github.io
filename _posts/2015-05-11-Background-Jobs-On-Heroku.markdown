@@ -37,14 +37,14 @@ clone the starter repo off of github here
 we need to add the sidekiq gem into our gemfile and then bundle install.
 we need to tell rails to use sidekiq for ActiveJob
 
-```ruby
+~~~ruby
 # config/application.rb
 module SidekiqApp
   class Application < Rails::Application
     config.active_job.queue_adapter = :sidekiq
   end
 end
-```
+~~~
 
 Now I want you to open up a seperate tab and run `bundle exec sidekiq` inside your rails directory.
 if it says that it is ready to accept jobs, you're in the clear.
@@ -58,9 +58,9 @@ and run `$ rails generate geocoder:config`.
 
 Now that we have the geocoder gem in there, we can open up our rails console and do somethign like this
 
-```
+~~~
 Geocoder.search("91770")
-```
+~~~
 Thsi returns a result object that you can pull latitude, longitude, city and state from.
 ###Making a worker
 
@@ -73,7 +73,7 @@ We're going to do this using rails 4.2 active jobs, like most things in rails it
 Now this will generate a job with a `#perform` method, make it so this method takes an `Account` does a Geocoder search by its zipcode and saves all the new data it finds.
 
 
-```ruby
+~~~ruby
  def perform(account)
     result = Geocoder.search(account.zipcode).first
     if result
@@ -84,28 +84,28 @@ Now this will generate a job with a `#perform` method, make it so this method ta
       account.save!
     end
   end
-```
+~~~
 
 To use this in our controller we just call
 
-```ruby
+~~~ruby
 def create
   account = Account.new(params.require(:account).permit(:name, :zipcode))
   account.save
   GeolocateAccountJob.perform_later(account)
 end
-```
+~~~
 
 And voila, rails makes it that easy.
 
 We can call a job to run at a set time as well, for example to archive an article, mail an email or something
 Set this up by calling the job like so
 
-```ruby
+~~~ruby
 
 GeolocateAccountJob.set(wait_until: Date.tomorrow.noon).perform_later
 GeolocateAccountJob.set(wait: 1.week).perform_later
-```
+~~~
 
 Create a new job that converts an account to pro after it is 5 minutes old
 
@@ -114,24 +114,24 @@ Create a new job that converts an account to pro after it is 5 minutes old
 Steps to make it work in heroku
 First we create our new heroku application
 
-```
+~~~
 $ heroku create
-```
+~~~
 
 Then we have to enable redis on heroku, and set sidekiq's redis url to the one heroku gives us
 
-```
+~~~
 $ heroku addons:create redistogo
 $ heroku config:set REDIS_PROVIDER=REDISTOGO_URL
-```
+~~~
 
 Lastly we go on heroku enable the beta pricing and switch our free worker on.
 
 Then we have to add a procfile to tell that worker what to do
 
 
-```ruby
+~~~ruby
 #procfile
 web: bundle exec thin start -p $PORT
 worker: bundle exec sidekiq
-```
+~~~
