@@ -23,14 +23,14 @@ All of the students are building apps that involve external API calls to create 
 Postgres' hstore datatype is [bad ass](http://www.postgresql.org/docs/9.0/static/hstore.html), I'd never used it before and I don't think I could ever go back.
 Add an initial migration
 
-~~~ ruby
+``` ruby
   def up
     enable_extension "hstore"
   end
   def down
     disable_extension "hstore"
   end
-~~~ 
+``` 
 
 And then just add a migration that adds a column with the hstore data type
 

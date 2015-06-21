@@ -8,7 +8,7 @@ twitter_username: RobAWilkinson
 github_username:  RobAWilkinson
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
 permalink: pretty
-gems: ['kramdown']
+gems: [redcarpet]
 exclude: ['config.ru', 'Gemfile', 'Gemfile.lock', 'vendor', 'Procfile', 'Rakefile']
