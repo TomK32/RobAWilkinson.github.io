@@ -7,12 +7,14 @@ title: "Mocking STDIN STDOUT in node"
 
 Recently I started a project that involved a pretty simple concept, building a CLI tool using node to allow someone to play  a text based adventure game.
 Like a good dev, I thought I should start with testing to get a little better feel for server side JS testing. I asked my colleagues what they think the best tools for the process would be since I was really only familiar with client side JS testing via Angular. I was told hands down to go for two key components
+
 * [mocha](https://github.com/mochajs/mocha) testing framework. (has a sweet `-w` when running tests where it watches files on save. Bye bye `guard`)
 * [chai](https://github.com/chaijs/chai) as the matcher library (lets you use `expect` and some other sweet matchers makes the transition from rspec smooth)
 
 # Set up
 
 Your standard steps
+
 * `npm init`
 * `npm install mocha chai`
 * create a spec folder and folder for your code
@@ -23,17 +25,17 @@ At the top of my test file I require my packages and also require the `child_pro
 
 The basic strategy is to have node run your code in a completely separate process write to STDIN and see what that code outputs to STDOUT.
 
-```js
+~~~js
 var expect = require('chai').expect;
 var path = require('path');
 var child = require('child_process');
-```
+~~~
 
 Before each test, make sure to spawn a new process and set its stdio to `pipe`
-```
+~~~js
     exec = path.join(__dirname, '..', 'game.js');
     proc = child.spawn(exec, {stdio: 'pipe'});
-```
+~~~
 ** Make sure to set your code to executable**
 * add this line to the top of the js file `#!/usr/bin/env node`
 * and `chmod` the permissions to executable `chmod a+x game.js`
@@ -44,14 +46,14 @@ On to the fun stuff....
 this code will run asynchronously so make sure to pass `done` into the function and call it after the assertion
 
 The first test will look something like this
-```
+~~~js
   it('tests', function(done) {
     proc.stdout.once('data', function(output) {
       expect(output.toString('utf-8')).to.eq('Would you like to play?\n');
       done();
     });
   });
-```
+~~~
 
 **remember the output is a chunk data stream so we have to convert it back into text**
 
@@ -66,7 +68,7 @@ it was emitting new lines when I called `rl.write` and it was causing all sorts 
 # Callback Hell
 The way that I wrote my code requires me to start from scratch every time, and since the data stream starts but only ends when the process finished I ended up nesting my call backs deeper and deeper.
 
-```js
+~~~js
   it('the user can enter js that evals to 42 as a sum', function(done) {
     proc.stdout.once('data', function(){
       proc.stdin.write('yes\r');
@@ -84,7 +86,7 @@ The way that I wrote my code requires me to start from scratch every time, and s
       });
     });
   });
-```
+~~~
 
 As far as refactoring this I'm sure there has to be a way to convert it into streams, pipe it to my function and use a switch statement to enter the `yes\r` and `1\r` 
 
