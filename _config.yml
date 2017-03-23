@@ -6,6 +6,7 @@ baseurl: ""
 url: "http://robawilkinson.github.io/"
 twitter_username: RobAWilkinson
 github_username:  RobAWilkinson
+theme: jekyll-theme-cayman
 
 # Build settings
 markdown: redcarpet
