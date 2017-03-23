@@ -9,7 +9,7 @@ github_username:  RobAWilkinson
 theme: jekyll-theme-cayman
 
 # Build settings
-markdown: redcarpet
+markdown: kramdown
 permalink: pretty
 gems: [redcarpet]
 exclude: ['config.ru', 'Gemfile', 'Gemfile.lock', 'vendor', 'Procfile', 'Rakefile']
