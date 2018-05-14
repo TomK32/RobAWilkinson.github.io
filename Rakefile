@@ -6,7 +6,7 @@ end
 namespace :blog do
   desc "Generate a new blog post with a title. Ex: rake blog:post['My New Post']"
   task :post, [:title] do |t, args|
-    date = Time.now.strftime("%G-%m-%d")
+    date = Time.now.strftime("%Y-%m-%d")
     title = args[:title].to_s.strip
       slug = title.split(' ').map{ |s| s.downcase }.join('-')
       puts slug
